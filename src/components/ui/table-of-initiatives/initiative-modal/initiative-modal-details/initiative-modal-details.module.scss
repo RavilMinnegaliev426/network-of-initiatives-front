@@ -1,63 +1,25 @@
 @import '@styles/variables';
 
-.initiative {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 100;
-  transform: translateX(-50%) translateY(-55%);
-
-  max-width: 900px;
-  max-height: 1100px;
-
-  border-radius: 20px;
-  border: 1px solid #1c1b21;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.5);
-  background-color: white;
-
-  padding: 60px 60px 80px;
+.description {
+  margin-top: 40px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
+.searching {
+  margin-top: 32px;
 }
 
-.descriptionBlock,
-.searchingBlock {
-  margin-bottom: 48px;
-}
-
-.descriptionBlock,
-.searchingBlock {
+.description,
+.searching {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
-}
+  row-gap: 8px;
 
-.date {
-  color: $color-b50;
-}
+  h4 {
+    color: $color-modal;
+  }
 
-.controls {
-  display: flex;
-  column-gap: 64px;
-  justify-content: flex-end;
-}
-
-.close {
-  font-size: $fz-para;
-  color: #ff0000;
-  text-decoration: underline;
-}
-
-.request {
-  background-color: $color-b100;
-  color: #fff;
-
-  border-radius: 6px;
-  padding: 16px 32px;
-
-  font-size: 20px;
+  p {
+    line-height: 1.6;
+    color: $color-b50;
+  }
 }

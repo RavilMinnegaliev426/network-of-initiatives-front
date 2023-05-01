@@ -1,43 +1,41 @@
+import InitiativeModal from '../InitiativeModal';
+import InitiativeModalHeader from '../initiative-modal-header/InitiativeModalHeader';
 import styles from './initiative-modal-details.module.scss';
 
 interface InitiativeModalDetailsProps {
   initiative: Initiative;
-  onClose: () => void;
 }
+
+const controls = {
+  cancelText: 'Назад',
+  onCancel: () => console.log(),
+  submitText: 'Оставить заявку',
+  onSubmit: () => console.log(),
+};
 
 export default function InitiativeModalDetails({
   initiative,
-  onClose,
 }: InitiativeModalDetailsProps) {
   return (
     <>
-      <article className={styles.initiative}>
-        <header className={styles.header}>
-          <h2>{initiative.title}</h2>
-          <time date-time='!LATER'>
-            <h3 className={styles.date}>15/04/2023</h3>
-          </time>
-        </header>
+      <InitiativeModal
+        size='m'
+        controls={controls}>
+        <InitiativeModalHeader
+          title={initiative.title}
+          date={initiative.dateOfCreation}
+        />
 
-        <div className={styles.descriptionBlock}>
-          <h3>Описание проекта</h3>
+        <div className={styles.description}>
+          <h4>Описание проекта</h4>
           <p>{initiative.description}</p>
         </div>
 
-        <div className={styles.searchingBlock}>
-          <h3>Кто нужен в команду</h3>
+        <div className={styles.searching}>
+          <h4>Кто нужен в команду</h4>
           <p>{initiative.searching}</p>
         </div>
-
-        <div className={styles.controls}>
-          <button
-            className={styles.close}
-            onClick={onClose}>
-            Закрыть
-          </button>
-          <button className={styles.request}>Оставить заявку</button>
-        </div>
-      </article>
+      </InitiativeModal>
     </>
   );
 }

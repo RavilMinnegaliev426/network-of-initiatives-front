@@ -5,7 +5,11 @@
   justify-content: space-between;
 }
 
+.title {
+  color: $color-modal;
+}
+
 .date {
   font-size: $fz-para;
-  color: $color-b50;
+  color: $color-modal-date;
 }

@@ -1,79 +1,89 @@
 import { useState } from 'react';
 import InputField from '../../../inputfield/InputField';
+import InitiativeModal from '../InitiativeModal';
 import InitiativeModalHeader from '../initiative-modal-header/InitiativeModalHeader';
 
 import styles from './initiative-modal-form.module.scss';
 import Textarea from '../../../textarea/Textarea';
-import Modal from '../../../modal/Modal';
 
-export default function InitiativeModalForm(initiative: Initiative) {
+const controls = {
+  cancelText: 'Назад',
+  onCancel: () => console.log(),
+  submitText: 'Отправить заявку',
+  onSubmit: () => console.log(),
+};
+
+interface InitiativeModalFormProps {
+  initiative: Initiative;
+}
+
+export default function InitiativeModalForm({
+  initiative,
+}: InitiativeModalFormProps) {
   const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [about, setAbout] = useState('');
+  const [lastname, setLastname] = useState('');
   const [contact, setContact] = useState('');
-  const [comment, setComment] = useState('');
+  const [about, setAbout] = useState('');
+  const [message, setMessage] = useState('');
 
   return (
     <>
-      <Modal
-        cancelText='Вернуться назад'
-        continueText='Оставить заявку'
-        onCancel={() => console.log('ok')}
-        onContinue={() => console.log('ok')}>
-        <form action='#'>
-          <InitiativeModalHeader
-            title={initiative.title}
-            date={initiative.dateOfCreation}
-            className={styles.header}
-          />
+      <InitiativeModal
+        size='s'
+        controls={controls}>
+        <InitiativeModalHeader
+          title={initiative.title}
+          date={initiative.dateOfCreation}
+        />
 
-          <div className={styles.fields}>
-            <div className={styles.firstLine}>
-              <InputField
-                name='name'
-                label='Имя'
-                placeholder='Иван'
-                value={name}
-                onChange={setName}
-              />
-
-              <InputField
-                name='lastname'
-                label='Фамилия'
-                placeholder='Иванов'
-                value={surname}
-                onChange={setSurname}
-              />
-            </div>
-
-            <Textarea
-              name='about'
-              label='О себе'
-              placeholder='Пару слов обо мне...'
-              value={about}
-              rows={7}
-              onChange={setAbout}
+        <form
+          className={styles.form}
+          action='#'>
+          <div className={styles.firstRow}>
+            <InputField
+              label='Имя'
+              name='name'
+              value={name}
+              onChange={setName}
+              placeholder='Иван'
             />
 
             <InputField
-              name='contact'
-              label='Контакт для связи'
-              placeholder='Телеграм, почта или номер телефона'
-              value={contact}
-              onChange={setContact}
-            />
-
-            <Textarea
-              name='comment'
-              label='Комментарий для инициатора'
-              placeholder='Любой комментарий'
-              value={comment}
-              rows={3}
-              onChange={setComment}
+              label='Фамилия'
+              name='lastname'
+              value={lastname}
+              onChange={setLastname}
+              placeholder='Иванов'
             />
           </div>
+
+          <InputField
+            label='Контактная информация'
+            name='contact'
+            value={contact}
+            onChange={setContact}
+            placeholder='Почтовый адрес, телеграм или номер телефона'
+          />
+
+          <Textarea
+            label='Кратко о себе'
+            name='about'
+            rows={6}
+            value={about}
+            onChange={setAbout}
+            placeholder='Расскажите пару слов о себе'
+          />
+
+          <Textarea
+            label='Сообщение автору'
+            name='message'
+            rows={3}
+            value={message}
+            onChange={setMessage}
+            placeholder='Почему вы заинтересованы в участии в этом проекте и какую роль можете сыграть?'
+          />
         </form>
-      </Modal>
+      </InitiativeModal>
     </>
   );
 }

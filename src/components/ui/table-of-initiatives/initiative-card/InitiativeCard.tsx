@@ -1,57 +1,45 @@
-import { useState } from 'react';
-import styles from './initiativeCard.module.scss';
-import InitiativeModal from '../initiative-modal/initiative-modal-details/InitiativeModalDetails';
+import Image from 'next/image';
+import { formatDate, formatDateForSEO } from '../../../../utils/dateUtils';
+import styles from './initiative-card.module.scss';
 
-export default function InitiativeCard(initiative: Initiative) {
-  const [modal, setModal] = useState(false);
+interface InitiativeCardProps {
+  initiative: Initiative;
+}
 
-  const toggleModal = () => setModal(!modal);
-
+export default function InitiativeCard({ initiative }: InitiativeCardProps) {
   return (
     <>
       <article className={styles.card}>
-        <header>
-          <div className={styles.headerTop}>
-            <h4>{initiative.title}</h4>
-            <time
-              dateTime='!!!CHANGE!!!'
-              className={styles.date}>
-              {/* {initiative.dateOfCreation.toString()} */}
-              4/29/2023
-            </time>
-          </div>
+        <h3 className={styles.title}>{initiative.title}</h3>
 
-          <p className={styles.author}>{initiative.author}</p>
-        </header>
+        <Image
+          src='/soft-star.svg'
+          alt='Soft star svg.'
+          width={21}
+          height={21}
+          className={styles.star}
+        />
 
-        <div className={styles.descriptionBlock}>
+        <div className={styles.description}>
           <h6>Описание проекта</h6>
-          <p className={styles.description}>{initiative.description}</p>
+          <p>{initiative.description}</p>
         </div>
 
-        <div className={styles.searchingBlock}>
+        <div className={styles.searching}>
           <h6>Кто нужен в команду</h6>
           <p>{initiative.searching}</p>
         </div>
 
-        <div className={styles.requestContainer}>
-          <button
-            className={styles.request}
-            onClick={toggleModal}>
-            Оставить заявку
-          </button>
+        <div className={styles.footer}>
+          <time
+            dateTime={formatDateForSEO(initiative.dateOfCreation)}
+            className={styles.date}>
+            {formatDate(initiative.dateOfCreation)}
+          </time>
+
+          <button className={styles.details}>Подробнее</button>
         </div>
       </article>
-
-      {modal ? (
-        <>
-          <div className={styles.overlay}></div>
-          <InitiativeModal
-            initiative={initiative}
-            onClose={toggleModal}
-          />
-        </>
-      ) : null}
     </>
   );
 }

@@ -7,11 +7,13 @@ import Image from 'next/image';
 interface TableOfInitaitivesProps {
   initiatives: Initiative[];
   onSelect: (initiative: Initiative) => void;
+  onPropose: () => void;
 }
 
 export default function TableOfInitaitives({
   initiatives,
   onSelect,
+  onPropose,
 }: TableOfInitaitivesProps) {
   const pages = 10; //REMOVE
 
@@ -28,7 +30,11 @@ export default function TableOfInitaitives({
           />
         ))}
 
-        <button className={styles.propose}>Предложить свою инициативу</button>
+        <button
+          className={styles.propose}
+          onClick={onPropose}>
+          Предложить свою инициативу
+        </button>
         <div className={styles.pageControls}>
           <h5>{`${page.toString()} / ${pages.toString()}`}</h5>
 

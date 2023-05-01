@@ -1,4 +1,5 @@
 import Modal from '../components/ui/modal/Modal';
+import InitiativeSection from '../components/ui/sections/initiatives-section/InitiativeSection';
 import TableOfInitaitives from '../components/ui/table-of-initiatives/TableOfInitaitives';
 import InitiativeCard from '../components/ui/table-of-initiatives/initiative-card/InitiativeCard';
 import InitiativeModal from '../components/ui/table-of-initiatives/initiative-modal/InitiativeModal';
@@ -11,7 +12,7 @@ import initiative from '../dummy';
 export default function Test() {
   return (
     <>
-      <TableOfInitaitives />
+      <InitiativeSection />
     </>
   );
 }

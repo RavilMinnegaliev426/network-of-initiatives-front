@@ -6,25 +6,29 @@ import InitiativeModalHeader from '../initiative-modal-header/InitiativeModalHea
 import styles from './initiative-modal-form.module.scss';
 import Textarea from '../../../textarea/Textarea';
 
-const controls = {
-  cancelText: 'Назад',
-  onCancel: () => console.log(),
-  submitText: 'Отправить заявку',
-  onSubmit: () => console.log(),
-};
-
 interface InitiativeModalFormProps {
   initiative: Initiative;
+  onCancel: () => void;
+  onSubmit: () => void;
 }
 
 export default function InitiativeModalForm({
   initiative,
+  onCancel,
+  onSubmit,
 }: InitiativeModalFormProps) {
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [contact, setContact] = useState('');
   const [about, setAbout] = useState('');
   const [message, setMessage] = useState('');
+
+  const controls = {
+    cancelText: 'Назад',
+    submitText: 'Отправить заявку',
+    onCancel,
+    onSubmit,
+  };
 
   return (
     <>

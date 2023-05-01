@@ -4,18 +4,22 @@ import styles from './initiative-modal-details.module.scss';
 
 interface InitiativeModalDetailsProps {
   initiative: Initiative;
+  onCancel: () => void;
+  onSubmit: () => void;
 }
-
-const controls = {
-  cancelText: 'Назад',
-  onCancel: () => console.log(),
-  submitText: 'Оставить заявку',
-  onSubmit: () => console.log(),
-};
 
 export default function InitiativeModalDetails({
   initiative,
+  onCancel,
+  onSubmit,
 }: InitiativeModalDetailsProps) {
+  const controls = {
+    cancelText: 'Назад',
+    submitText: 'Оставить заявку',
+    onCancel,
+    onSubmit,
+  };
+
   return (
     <>
       <InitiativeModal

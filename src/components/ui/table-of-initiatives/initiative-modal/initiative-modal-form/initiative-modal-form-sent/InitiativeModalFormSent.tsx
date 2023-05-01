@@ -3,7 +3,13 @@ import Modal from '../../../../modal/Modal';
 
 import styles from './initiative-modal-form-sent.module.scss';
 
-export default function InitiativeModalFormSent() {
+interface InitiativeModalFormSentProps {
+  onSubmit: () => void;
+}
+
+export default function InitiativeModalFormSent({
+  onSubmit,
+}: InitiativeModalFormSentProps) {
   return (
     <>
       <Modal size='s'>
@@ -21,7 +27,11 @@ export default function InitiativeModalFormSent() {
 
           <div className={styles.line}></div>
 
-          <button className={styles.back}>Вернуться</button>
+          <button
+            className={styles.back}
+            onClick={onSubmit}>
+            Вернуться
+          </button>
         </div>
       </Modal>
     </>

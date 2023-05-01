@@ -4,9 +4,13 @@ import styles from './initiative-card.module.scss';
 
 interface InitiativeCardProps {
   initiative: Initiative;
+  onSelect: () => void;
 }
 
-export default function InitiativeCard({ initiative }: InitiativeCardProps) {
+export default function InitiativeCard({
+  initiative,
+  onSelect,
+}: InitiativeCardProps) {
   return (
     <>
       <article className={styles.card}>
@@ -37,7 +41,11 @@ export default function InitiativeCard({ initiative }: InitiativeCardProps) {
             {formatDate(initiative.dateOfCreation)}
           </time>
 
-          <button className={styles.details}>Подробнее</button>
+          <button
+            className={styles.details}
+            onClick={onSelect}>
+            Подробнее
+          </button>
         </div>
       </article>
     </>

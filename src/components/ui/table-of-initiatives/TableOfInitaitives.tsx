@@ -1,11 +1,18 @@
 import styles from './table-of-initiatives.module.scss';
 
-import initiative from '../../../dummy';
 import InitiativeCard from './initiative-card/InitiativeCard';
 import { useState } from 'react';
 import Image from 'next/image';
 
-export default function TableOfInitaitives() {
+interface TableOfInitaitivesProps {
+  initiatives: Initiative[];
+  onSelect: (initiative: Initiative) => void;
+}
+
+export default function TableOfInitaitives({
+  initiatives,
+  onSelect,
+}: TableOfInitaitivesProps) {
   const pages = 10; //REMOVE
 
   const [page, setPage] = useState(1);
@@ -13,10 +20,13 @@ export default function TableOfInitaitives() {
   return (
     <>
       <section className={styles.table}>
-        <InitiativeCard initiative={initiative} />
-        <InitiativeCard initiative={initiative} />
-        <InitiativeCard initiative={initiative} />
-        <InitiativeCard initiative={initiative} />
+        {initiatives.map((initiative) => (
+          <InitiativeCard
+            key={initiative.id}
+            initiative={initiative}
+            onSelect={() => onSelect({ ...initiative })}
+          />
+        ))}
 
         <button className={styles.propose}>Предложить свою инициативу</button>
         <div className={styles.pageControls}>

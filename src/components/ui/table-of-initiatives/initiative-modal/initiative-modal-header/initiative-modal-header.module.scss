@@ -1,0 +1,11 @@
+@import '@styles/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  font-size: $fz-para;
+  color: $color-b50;
+}

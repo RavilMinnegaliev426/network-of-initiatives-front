@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TableOfInitaitives from '../../table-of-initiatives/TableOfInitaitives';
 
-import initiatives from '../../../../dummy';
+import allInitaitives from '../../../../dummy';
 import InitiativeModalDetails from '../../table-of-initiatives/initiative-modal/initiative-modal-details/InitiativeModalDetails';
 
 import styles from './initiative-section.module.scss';
@@ -11,6 +11,8 @@ import InitiativeModalPropose from '../../table-of-initiatives/initiative-modal/
 import InitiativeModalProposeSent from '../../table-of-initiatives/initiative-modal/initiative-modal-propose/initiative-modal-propose-sent/InitiativeModalProposeSent';
 
 export default function InitiativeSection() {
+  const [initiativePage, setInitiativePage] = useState(1);
+
   const [proposePage, setProposePage] = useState(0);
 
   const handleProposeBack = () => setProposePage(proposePage - 1);
@@ -30,12 +32,33 @@ export default function InitiativeSection() {
   const handleModalNext = () => setModalPage(modalPage + 1);
   const handleModalBack = () => setModalPage(modalPage - 1);
 
+  const handlePageNext = () => {
+    if (allInitaitives.length - 4 * initiativePage > 0)
+      setInitiativePage(initiativePage + 1);
+  };
+
+  const handlePageBack = () => {
+    if (allInitaitives.length - 4 * (initiativePage - 1) > 0)
+      setInitiativePage(initiativePage - 1);
+  };
+
+  const intiatives = allInitaitives.slice(
+    initiativePage * 4 - 4,
+    initiativePage * 4
+  );
+
+  const totalPages = Math.ceil(allInitaitives.length / 4);
+
   return (
     <>
       <TableOfInitaitives
-        initiatives={initiatives}
+        initiatives={intiatives}
         onSelect={handleInitiativeSelect}
         onPropose={handleProposeSelect}
+        onPageBack={handlePageBack}
+        onPageNext={handlePageNext}
+        page={initiativePage}
+        totalPages={totalPages}
       />
 
       {(modalPage !== 0 || proposePage !== 0) && (

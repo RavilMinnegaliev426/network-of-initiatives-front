@@ -8,17 +8,21 @@ interface TableOfInitaitivesProps {
   initiatives: Initiative[];
   onSelect: (initiative: Initiative) => void;
   onPropose: () => void;
+  onPageBack: () => void;
+  onPageNext: () => void;
+  page: number;
+  totalPages: number;
 }
 
 export default function TableOfInitaitives({
   initiatives,
   onSelect,
+  onPageBack,
+  onPageNext,
+  page,
+  totalPages,
   onPropose,
 }: TableOfInitaitivesProps) {
-  const pages = 10; //REMOVE
-
-  const [page, setPage] = useState(1);
-
   return (
     <>
       <section className={styles.table}>
@@ -36,7 +40,7 @@ export default function TableOfInitaitives({
           Предложить свою инициативу
         </button>
         <div className={styles.pageControls}>
-          <h5>{`${page.toString()} / ${pages.toString()}`}</h5>
+          <h5>{`${page.toString()} / ${totalPages.toString()}`}</h5>
 
           <div className={styles.moves}>
             <Image
@@ -44,12 +48,14 @@ export default function TableOfInitaitives({
               alt='Move left svg.'
               width={77}
               height={77}
+              onClick={onPageBack}
             />
             <Image
               src='/move-right.svg'
               alt='Move right svg.'
               width={77}
               height={77}
+              onClick={onPageNext}
             />
           </div>
         </div>

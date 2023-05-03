@@ -34,7 +34,9 @@ export default function InitiativeModal({
           </button>
           <button
             className={styles.submit}
-            onClick={controls.onSubmit}>
+            onClick={() => {
+              controls.onSubmit();
+            }}>
             {controls.submitText}
           </button>
         </div>

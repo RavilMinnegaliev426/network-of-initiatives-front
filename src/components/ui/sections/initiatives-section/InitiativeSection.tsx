@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TableOfInitaitives from '../../table-of-initiatives/TableOfInitaitives';
 
-import allInitaitives from '../../../../dummy';
 import InitiativeModalDetails from '../../table-of-initiatives/initiative-modal/initiative-modal-details/InitiativeModalDetails';
 
 import styles from './initiative-section.module.scss';
@@ -10,19 +9,30 @@ import InitiativeModalFormSent from '../../table-of-initiatives/initiative-modal
 import InitiativeModalPropose from '../../table-of-initiatives/initiative-modal/initiative-modal-propose/InitiativeModalPropose';
 import InitiativeModalProposeSent from '../../table-of-initiatives/initiative-modal/initiative-modal-propose/initiative-modal-propose-sent/InitiativeModalProposeSent';
 
+import useSWR from 'swr';
+import dataFetcher from '../../../lib/dataFetcher';
+
 export default function InitiativeSection() {
+  const {
+    data: allInitaitives,
+    error,
+    isLoading,
+  } = useSWR('http://localhost:3000/test', dataFetcher);
+
   const [initiativePage, setInitiativePage] = useState(1);
 
   const [proposePage, setProposePage] = useState(0);
+
+  const [selectedInitiative, setSelectedInitiative] =
+    useState<Initiative | null>(null);
+  const [modalPage, setModalPage] = useState(0);
+
+  if (isLoading || error) return <div>Loading...</div>;
 
   const handleProposeBack = () => setProposePage(proposePage - 1);
   const handleProposeNext = () => setProposePage(proposePage + 1);
 
   const handleProposeSelect = () => setProposePage(1);
-
-  const [selectedInitiative, setSelectedInitiative] =
-    useState<Initiative | null>(null);
-  const [modalPage, setModalPage] = useState(0);
 
   const handleInitiativeSelect = (initiative: Initiative) => {
     setSelectedInitiative(initiative);

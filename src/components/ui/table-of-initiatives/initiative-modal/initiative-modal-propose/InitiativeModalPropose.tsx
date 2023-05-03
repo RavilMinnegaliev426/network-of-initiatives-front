@@ -3,6 +3,7 @@ import InitiativeModal from '../InitiativeModal';
 import styles from './initiative-modal-propose.module.scss';
 import InputField from '../../../inputfield/InputField';
 import Textarea from '../../../textarea/Textarea';
+import { postInitiative } from '../../../../lib/postInitiative';
 
 interface InitiativeModalProposeProps {
   onCancel: () => void;
@@ -20,11 +21,31 @@ export default function InitiativeModalPropose({
   const [searching, setSearching] = useState('');
   const [contact, setContact] = useState('');
 
+  const handleSubmit = async () => {
+    console.log('damn');
+    if (!(name && lastname && title && description && searching && contact))
+      return;
+
+    console.log('can try');
+
+    const isPosted = await postInitiative({
+      title,
+      description,
+      searching,
+      contact,
+      author: name + lastname,
+    });
+
+    if (isPosted) {
+      onSubmit();
+    }
+  };
+
   const controls = {
     cancelText: 'Назад',
     submitText: 'Отправить инициативу',
     onCancel,
-    onSubmit,
+    onSubmit: handleSubmit,
   };
 
   return (

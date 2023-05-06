@@ -5,6 +5,7 @@ import InitiativeModalHeader from '../initiative-modal-header/InitiativeModalHea
 
 import styles from './initiative-modal-form.module.scss';
 import Textarea from '../../../textarea/Textarea';
+import { postApplication } from '../../../../lib/postApplication';
 
 interface InitiativeModalFormProps {
   initiative: Initiative;
@@ -23,11 +24,27 @@ export default function InitiativeModalForm({
   const [about, setAbout] = useState('');
   const [message, setMessage] = useState('');
 
+  const handleSubmit = async () => {
+    if (!(name && lastname && contact && about && message)) return;
+
+    const isPosted = await postApplication({
+      initiativeID: initiative.id,
+      name: name + ' ' + lastname,
+      about,
+      contact,
+      message,
+    });
+
+    if (isPosted) {
+      onSubmit();
+    }
+  };
+
   const controls = {
     cancelText: 'Назад',
     submitText: 'Отправить заявку',
     onCancel,
-    onSubmit,
+    onSubmit: handleSubmit,
   };
 
   return (

@@ -1,4 +1,4 @@
-const endpoint = 'http://localhost:3000/';
+import config from '../config';
 
 interface InitiativePost {
   title: string;
@@ -9,9 +9,7 @@ interface InitiativePost {
 }
 
 export const postInitiative = async (initiative: InitiativePost) => {
-  const path = endpoint + 'new';
-
-  const response = await fetch(path, {
+  const response = await fetch(config.POST_INITIATIVE_ROUTE, {
     method: 'POST',
     body: JSON.stringify(initiative),
     headers: {

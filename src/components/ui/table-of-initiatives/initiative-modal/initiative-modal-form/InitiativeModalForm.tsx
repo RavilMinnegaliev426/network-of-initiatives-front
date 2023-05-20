@@ -5,7 +5,7 @@ import InitiativeModalHeader from '../initiative-modal-header/InitiativeModalHea
 
 import styles from './initiative-modal-form.module.scss';
 import Textarea from '../../../textarea/Textarea';
-import { postApplication } from '../../../../lib/postApplication';
+import { postApplication } from '../../../../../lib/postApplication';
 
 interface InitiativeModalFormProps {
   initiative: Initiative;

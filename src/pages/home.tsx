@@ -1,12 +1,11 @@
-import InitiativeCard from '../components/ui/table-of-initiatives/initiative-card/InitiativeCard';
-import InitiativeModal from '../components/ui/table-of-initiatives/initiative-modal/InitiativeModalDetails';
+import InitiativeSection from '../components/ui/sections/initiatives-section/InitiativeSection';
 
 import initiative from '../dummy';
 
 export default function Home() {
   return (
     <>
-      <InitiativeCard {...initiative} />
+      <InitiativeSection />
     </>
   );
 }

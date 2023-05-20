@@ -10,14 +10,17 @@ import InitiativeModalPropose from '../../table-of-initiatives/initiative-modal/
 import InitiativeModalProposeSent from '../../table-of-initiatives/initiative-modal/initiative-modal-propose/initiative-modal-propose-sent/InitiativeModalProposeSent';
 
 import useSWR from 'swr';
-import dataFetcher from '../../../lib/dataFetcher';
+import dataFetcher from '../../../../lib/dataFetcher';
+
+import config from '../../../../config';
+import Loading from '../../Loading/Loading';
 
 export default function InitiativeSection() {
   const {
     data: allInitaitives,
     error,
     isLoading,
-  } = useSWR('http://localhost:3000/test', dataFetcher);
+  } = useSWR(config.GET_INITATIVES_ROUTE, dataFetcher);
 
   const [initiativePage, setInitiativePage] = useState(1);
 
@@ -27,7 +30,7 @@ export default function InitiativeSection() {
     useState<Initiative | null>(null);
   const [modalPage, setModalPage] = useState(0);
 
-  if (isLoading || error) return <div>Loading...</div>;
+  if (isLoading || error) return <Loading />;
 
   const handleProposeBack = () => setProposePage(proposePage - 1);
   const handleProposeNext = () => setProposePage(proposePage + 1);

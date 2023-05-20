@@ -1,4 +1,4 @@
-const endpoint = 'http://localhost:3000/application';
+import config from '../config';
 
 interface Application {
   initiativeID: number;
@@ -9,7 +9,7 @@ interface Application {
 }
 
 export const postApplication = async (application: Application) => {
-  const response = await fetch(endpoint, {
+  const response = await fetch(config.POST_APPLICATION_ROUTE, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

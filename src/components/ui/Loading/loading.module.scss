@@ -1,0 +1,14 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  padding: 24px 40px;
+  border: 1px solid rgba(0 0 0 / 0.2);
+  border-radius: 8px;
+
+  h1 {
+    font-size: 28px;
+    color: grey;
+  }
+}

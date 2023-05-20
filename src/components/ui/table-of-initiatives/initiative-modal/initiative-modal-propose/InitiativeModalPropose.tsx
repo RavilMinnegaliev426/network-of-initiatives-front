@@ -3,7 +3,7 @@ import InitiativeModal from '../InitiativeModal';
 import styles from './initiative-modal-propose.module.scss';
 import InputField from '../../../inputfield/InputField';
 import Textarea from '../../../textarea/Textarea';
-import { postInitiative } from '../../../../lib/postInitiative';
+import { postInitiative } from '../../../../../lib/postInitiative';
 
 interface InitiativeModalProposeProps {
   onCancel: () => void;

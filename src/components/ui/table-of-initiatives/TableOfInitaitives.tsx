@@ -1,7 +1,6 @@
 import styles from './table-of-initiatives.module.scss';
 
 import InitiativeCard from './initiative-card/InitiativeCard';
-import { useState } from 'react';
 import Image from 'next/image';
 
 interface TableOfInitaitivesProps {

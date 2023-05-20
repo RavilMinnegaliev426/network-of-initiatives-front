@@ -1,4 +1,6 @@
 const dataFetcher = async (endpoint: string) => {
+  const loading = await setTimeout(() => console.log('ok'), 8000);
+
   const response = await fetch(endpoint, {
     method: 'GET',
   });

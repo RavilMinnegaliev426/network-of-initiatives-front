@@ -30,7 +30,7 @@ export default function InitiativeSection() {
     useState<Initiative | null>(null);
   const [modalPage, setModalPage] = useState(0);
 
-  if (isLoading || error) return <Loading />;
+  if (error || isLoading) return <Loading />;
 
   const handleProposeBack = () => setProposePage(proposePage - 1);
   const handleProposeNext = () => setProposePage(proposePage + 1);
@@ -55,24 +55,30 @@ export default function InitiativeSection() {
       setInitiativePage(initiativePage - 1);
   };
 
-  const intiatives = allInitaitives.slice(
-    initiativePage * 4 - 4,
-    initiativePage * 4
-  );
+  let initiatives = allInitaitives;
+  let totalPages = 0;
 
-  const totalPages = Math.ceil(allInitaitives.length / 4);
+  if (initiatives && initiatives.length !== 0) {
+    initiatives = allInitaitives.slice(
+      initiativePage * 4 - 4,
+      initiativePage * 4
+    );
+    totalPages = Math.ceil(allInitaitives.length / 4);
+  }
 
   return (
     <>
-      <TableOfInitaitives
-        initiatives={intiatives}
-        onSelect={handleInitiativeSelect}
-        onPropose={handleProposeSelect}
-        onPageBack={handlePageBack}
-        onPageNext={handlePageNext}
-        page={initiativePage}
-        totalPages={totalPages}
-      />
+      {initiatives && (
+        <TableOfInitaitives
+          initiatives={initiatives}
+          onSelect={handleInitiativeSelect}
+          onPropose={handleProposeSelect}
+          onPageBack={handlePageBack}
+          onPageNext={handlePageNext}
+          page={initiativePage}
+          totalPages={totalPages}
+        />
+      )}
 
       {(modalPage !== 0 || proposePage !== 0) && (
         <div className={styles.overlay}></div>

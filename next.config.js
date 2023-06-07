@@ -7,6 +7,7 @@ const nextConfig = {
   async rewrites() {
     return [
       { source: '/initiatives/_next/:path*', destination: '/_next/:path*' },
+      { source: '/initiatives/:path*', destination: '/:path*' },
     ];
   },
   reactStrictMode: true,

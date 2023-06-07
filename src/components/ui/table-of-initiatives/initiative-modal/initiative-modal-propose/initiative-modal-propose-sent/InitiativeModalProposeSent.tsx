@@ -16,7 +16,7 @@ export default function InitiativeModalProposeSent({
         <Modal size='s'>
           <div className={styles.container}>
             <Image
-              src='/tick.svg'
+              src='/initiatives/tick.svg'
               alt={'Successful sent icon.'}
               width={109}
               height={109}

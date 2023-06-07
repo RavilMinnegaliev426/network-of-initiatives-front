@@ -17,7 +17,7 @@ export default function InitiativeCard({
         <h3 className={styles.title}>{initiative.title}</h3>
 
         <Image
-          src='/soft-star.svg'
+          src='/initiatives/soft-star.svg'
           alt='Soft star svg.'
           width={21}
           height={21}

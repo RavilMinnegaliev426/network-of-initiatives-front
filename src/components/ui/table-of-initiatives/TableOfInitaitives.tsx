@@ -43,14 +43,14 @@ export default function TableOfInitaitives({
 
           <div className={styles.moves}>
             <Image
-              src='/move-left.svg'
+              src='/initiatives/move-left.svg'
               alt='Move left svg.'
               width={77}
               height={77}
               onClick={onPageBack}
             />
             <Image
-              src='/move-right.svg'
+              src='/initiatives/move-right.svg'
               alt='Move right svg.'
               width={77}
               height={77}

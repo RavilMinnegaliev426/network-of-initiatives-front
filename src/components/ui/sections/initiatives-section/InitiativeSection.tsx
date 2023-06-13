@@ -51,8 +51,7 @@ export default function InitiativeSection() {
   };
 
   const handlePageBack = () => {
-    if (allInitaitives.length - 4 * (initiativePage - 1) > 0)
-      setInitiativePage(initiativePage - 1);
+    if (initiativePage - 1 > 0) setInitiativePage(initiativePage - 1);
   };
 
   let initiatives = allInitaitives;

@@ -26,7 +26,7 @@ export default function InitiativeCard({
 
         <div className={styles.description}>
           <h6>Описание проекта</h6>
-          <p>{initiative.description}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{initiative.description}</p>
         </div>
 
         <div className={styles.searching}>

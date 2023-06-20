@@ -31,7 +31,7 @@ export default function InitiativeCard({
 
         <div className={styles.searching}>
           <h6>Кто нужен в команду</h6>
-          <p>{initiative.searching}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{initiative.searching}</p>
         </div>
 
         <div className={styles.footer}>

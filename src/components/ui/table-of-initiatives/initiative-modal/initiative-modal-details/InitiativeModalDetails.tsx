@@ -32,12 +32,12 @@ export default function InitiativeModalDetails({
 
         <div className={styles.description}>
           <h4>Описание проекта</h4>
-          <p>{initiative.description}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{initiative.description}</p>
         </div>
 
         <div className={styles.searching}>
           <h4>Кто нужен в команду</h4>
-          <p>{initiative.searching}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{initiative.searching}</p>
         </div>
       </InitiativeModal>
     </>

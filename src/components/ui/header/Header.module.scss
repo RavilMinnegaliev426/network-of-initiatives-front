@@ -1,0 +1,28 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+}
+.headerLogo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.wrapperTextLogo {
+  display: flex;
+  flex-direction: row;
+}
+.imageWrapper {
+  height: 100px;
+}
+.wrapperTextLogo {
+  font-family: Manrope;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: left;
+}
+.headerNav {
+}
+.blueText {
+  color: rgba(86, 157, 170, 1);
+}

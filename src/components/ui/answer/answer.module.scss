@@ -1,0 +1,26 @@
+.container {
+  margin-bottom: 188px;
+}
+.textAnswer {
+  text-align: center;
+  font-family: Manrope;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 32px;
+}
+.imgWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 270px;
+  padding-right: 270px;
+}
+.discord,
+.mail,
+.telegram {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

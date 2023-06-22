@@ -1,4 +1,4 @@
-@import '@styles/variables';
+@import "@styles/variables";
 
 .table {
   display: grid;
@@ -6,7 +6,7 @@
   grid-template-rows: repeat(3, min-content);
   gap: 20px 40px;
 
-  height: 100vh; // REMOVE
+  max-height: 100vh; // REMOVE
   place-content: center;
 }
 
@@ -14,10 +14,14 @@
   grid-row: 3 / 4;
   place-self: start;
   color: #000;
-  border: 1px solid #000;
   padding: 28px 32px;
   border-radius: 18px;
   font-size: $fz-h5;
+  background-color: rgba(86, 157, 170, 1);
+  color: white;
+}
+.propose:hover {
+  opacity: 0.9;
 }
 
 .pageControls {
@@ -34,7 +38,13 @@
   }
 }
 
-.moves {
+.movesWrapper {
   display: flex;
+  flex-direction: row;
   column-gap: 8px;
+  cursor: pointer;
+}
+.moves1:hover,
+.moves2:hover {
+  opacity: 0.5;
 }

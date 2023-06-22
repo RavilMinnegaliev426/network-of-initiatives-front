@@ -12,22 +12,7 @@ export const Header = (props: Props) => {
           <div className={s.blueText}>Инициатив</div>
         </div>
       </div>
-      <nav className={s.headerNav}>
-        <ul>
-          <li>
-            <a href="#">О нас</a>
-          </li>
-          <li>
-            <a href="#">Инициативы</a>
-          </li>
-          <li>
-            <a href="#">Сообщество</a>
-          </li>
-          <li>
-            <a href="#">Контакты</a>
-          </li>
-        </ul>
-      </nav>
+      <nav className={s.headerNav}></nav>
     </div>
   );
 };

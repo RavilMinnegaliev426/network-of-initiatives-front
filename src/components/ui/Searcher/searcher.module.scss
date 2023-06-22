@@ -1,3 +1,6 @@
+.searcherContainer {
+  margin-bottom: 42px;
+}
 .searchWrapper {
   display: flex;
   flex-direction: row;
@@ -9,4 +12,19 @@
   font-weight: 600;
   line-height: 43px;
   margin-left: 12px;
+}
+.searchEngine {
+  height: 74px;
+  max-width: 635px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: row;
+}
+.svgWrapper {
+  padding-left: 17px;
+  display: flex;
+}
+.searcher {
+  padding-left: 12px;
+  max-width: 600px;
 }

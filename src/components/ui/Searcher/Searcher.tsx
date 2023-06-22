@@ -8,7 +8,12 @@ export const Searcher = (props: Props) => {
         <SvgSelector id={"lighting"} />
         <div className={s.searcherText}>Активные инициативы</div>;
       </div>
-      <div className={s.searchEngine}></div>
+      {/* <div className={s.searchEngine}>
+        <div className={s.svgWrapper}>
+          <SvgSelector id={"searcher"} />
+        </div>
+        <input className={s.searcher} placeholder="Поиск инициативы"></input>
+      </div> */}
     </div>
   );
 };

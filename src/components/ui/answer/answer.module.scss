@@ -12,12 +12,9 @@
 .imgWrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-left: 270px;
-  padding-right: 270px;
+  justify-content: center;
 }
-.discord,
-.mail,
+
 .telegram {
   display: flex;
   flex-direction: row;

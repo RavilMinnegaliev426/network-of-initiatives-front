@@ -15,16 +15,6 @@ export const Answer = (props: Props) => {
         работу нашей платформы.
       </div>
       <div className={s.imgWrapper}>
-        <div className={s.discord}>
-          <SvgSelector id={"discord"} />
-          <a href="@networkOfInitiatives">@networkOfInitiatives</a>
-        </div>
-        <div className={s.mail}>
-          <SvgSelector id={"mail"} />
-          <a href="mailto:networkOfInitiatives@gmail.com">
-            networkOfInitiatives@gmail.com
-          </a>
-        </div>
         <div className={s.telegram}>
           <SvgSelector id={"telegram"} />
           <a href="https://t.me/initiative_network">@initiative_network</a>

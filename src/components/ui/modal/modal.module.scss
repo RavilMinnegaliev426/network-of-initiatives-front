@@ -28,7 +28,7 @@ $size-m: 886px;
 .m {
   max-width: $size-m;
 }
-@media (max-width: 576px) {
+@media (max-width: 900px) {
   .modal {
     position: fixed;
     left: 50%;

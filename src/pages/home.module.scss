@@ -20,3 +20,9 @@
     padding-right: 15px;
   }
 }
+
+@media (max-width: 968px) {
+  .wrapper {
+    max-width: 600px;
+  }
+}

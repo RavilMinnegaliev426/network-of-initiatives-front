@@ -12,3 +12,11 @@
 .container {
   margin-bottom: 183px;
 }
+.container {
+  margin-bottom: 30px;
+}
+@media (max-width: 576px) {
+  .container {
+    margin-bottom: 60px;
+  }
+}

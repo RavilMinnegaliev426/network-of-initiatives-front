@@ -2,7 +2,6 @@
 
 .table {
   display: grid;
-  grid-template-columns: repeat(2, min-content);
   grid-template-rows: repeat(3, min-content);
   gap: 20px 40px;
   place-content: center;
@@ -40,8 +39,34 @@
   flex-direction: row;
   column-gap: 8px;
   cursor: pointer;
+  align-items: center;
 }
 .moves1:hover,
 .moves2:hover {
   opacity: 0.5;
+}
+
+@media (max-width: 1444px) {
+  .table {
+    gap: 20px 10px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .table {
+    display: block;
+  }
+
+  .pageControls {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 395px) {
+  .propose {
+    padding: 5px 6px;
+  }
+  .pageControls {
+    justify-content: center;
+  }
 }

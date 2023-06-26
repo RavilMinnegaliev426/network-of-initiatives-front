@@ -21,3 +21,12 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 576px) {
+  .container {
+    margin-bottom: 60px;
+  }
+  .textAnswer {
+    font-size: 14px;
+  }
+}

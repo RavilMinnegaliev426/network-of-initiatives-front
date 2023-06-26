@@ -1,4 +1,4 @@
-@import '@styles/variables';
+@import "@styles/variables";
 
 .header {
   display: flex;
@@ -12,4 +12,10 @@
 .date {
   font-size: $fz-para;
   color: $color-modal-date;
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 22px;
+  }
 }

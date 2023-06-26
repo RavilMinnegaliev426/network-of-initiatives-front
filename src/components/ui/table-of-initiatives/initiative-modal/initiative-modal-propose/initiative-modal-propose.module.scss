@@ -1,4 +1,4 @@
-@import '@styles/variables';
+@import "@styles/variables";
 
 .title {
   color: $color-modal;
@@ -16,4 +16,11 @@
   display: flex;
   justify-content: space-between;
   column-gap: 20px;
+}
+
+@media (max-width: 576px) {
+  .firstRow {
+    display: flex;
+    flex-direction: column;
+  }
 }

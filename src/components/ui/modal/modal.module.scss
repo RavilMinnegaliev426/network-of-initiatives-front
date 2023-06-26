@@ -22,9 +22,18 @@ $size-m: 886px;
 }
 
 .s {
-  width: $size-s;
+  max-width: $size-s;
 }
 
 .m {
-  width: $size-m;
+  max-width: $size-m;
+}
+@media (max-width: 576px) {
+  .modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 100vh;
+    overflow-y: auto;
+  }
 }

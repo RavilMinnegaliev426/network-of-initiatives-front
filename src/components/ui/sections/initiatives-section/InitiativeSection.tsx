@@ -78,18 +78,17 @@ export default function InitiativeSection() {
           totalPages={totalPages}
         />
       )}
-
+      {/* //{" "} */}
       {(modalPage !== 0 || proposePage !== 0) && (
         <div className={styles.overlay}></div>
       )}
-
+      {/* //{" "} */}
       {proposePage === 1 && (
         <InitiativeModalPropose
           onCancel={handleProposeBack}
           onSubmit={handleProposeNext}
         />
       )}
-
       {proposePage === 2 && (
         <InitiativeModalProposeSent onSubmit={() => setProposePage(0)} />
       )}
@@ -101,7 +100,6 @@ export default function InitiativeSection() {
           onSubmit={handleModalNext}
         />
       )}
-
       {modalPage === 2 && selectedInitiative !== null && (
         <InitiativeModalForm
           initiative={selectedInitiative}

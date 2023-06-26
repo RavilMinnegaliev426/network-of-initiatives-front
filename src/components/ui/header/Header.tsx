@@ -5,14 +5,13 @@ export const Header = (props: Props) => {
     <div className={s.headerContainer}>
       <div className={s.headerLogo}>
         <div className={s.imageWrapper}>
-          <img src="/initiatives/logo1.svg" />
+          <img className={s.headeImage} src="/initiatives/logo1.svg" />
         </div>
         <div className={s.wrapperTextLogo}>
           <div>Сеть </div>
           <div className={s.blueText}>Инициатив</div>
         </div>
       </div>
-      <nav className={s.headerNav}></nav>
     </div>
   );
 };

@@ -32,13 +32,10 @@ export default function TableOfInitaitives({
             onSelect={() => onSelect({ ...initiative })}
           />
         ))}
-
         <button className={styles.propose} onClick={onPropose}>
           Предложить свою инициативу
         </button>
         <div className={styles.pageControls}>
-          <h5>{`${page.toString()} / ${totalPages.toString()}`}</h5>
-
           <div className={styles.movesWrapper}>
             <div className={styles.moves1}>
               {" "}
@@ -50,6 +47,10 @@ export default function TableOfInitaitives({
                 onClick={onPageBack}
               />
             </div>
+            <h5
+              className={styles.pageCounter}
+            >{`${page.toString()} / ${totalPages.toString()}`}</h5>
+
             <div className={styles.moves2}>
               <Image
                 src="/initiatives/move-right.svg"

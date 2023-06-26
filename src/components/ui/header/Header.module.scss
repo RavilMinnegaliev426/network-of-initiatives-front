@@ -25,3 +25,14 @@
 .blueText {
   color: rgba(86, 157, 170, 1);
 }
+
+@media (max-width: 576px) {
+  .headeImage {
+    max-width: 70%;
+  }
+  .imageWrapper {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+}

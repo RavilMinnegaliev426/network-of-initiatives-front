@@ -1,11 +1,23 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   console.log(`I AM ALIVE`);
 
   return (
     <Html>
-      <Head />
+      <Head>
+        <title>Сеть инициатив</title>
+        <meta
+          name="description"
+          content="Платформа для роста команд и проектов и создания своих инициатив"
+        />
+        <link
+          rel="shortcut icon"
+          href="/initiatives/logo1_(1) (1).ico"
+          type="image/x-icon"
+        />
+      </Head>
+
       <body>
         <Main />
         <NextScript />
@@ -31,9 +43,9 @@ export default function Document() {
         <noscript>
           <div>
             <img
-              src='https://mc.yandex.ru/watch/93970145'
-              style={{ position: 'absolute', left: '-9999px' }}
-              alt=''
+              src="https://mc.yandex.ru/watch/93970145"
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
             />
           </div>
         </noscript>

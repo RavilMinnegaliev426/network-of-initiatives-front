@@ -3,7 +3,8 @@
 $color-border: rgba(34 47 68 / 0.2);
 
 $size-s: 660px;
-$size-m: 886px;
+$size-m: 720px;
+$size-min: 576px;
 
 .modal {
   position: fixed;
@@ -22,18 +23,29 @@ $size-m: 886px;
 }
 
 .s {
+  min-width: $size-min;
   max-width: $size-s;
 }
 
 .m {
+  min-width: 576px;
   max-width: $size-m;
 }
-@media (max-width: 900px) {
+@media (max-width: 968px) {
   .modal {
     position: fixed;
     left: 50%;
     top: 50%;
     height: 100vh;
     overflow-y: auto;
+  }
+  @media (max-width: 576px) {
+    .s {
+      min-width: 100%;
+    }
+
+    .m {
+      min-width: 100%;
+    }
   }
 }

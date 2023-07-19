@@ -4,5 +4,6 @@ interface Initiative {
   title: string;
   author: string;
   description: string;
-  searching: string;
+  searching?: string;
+  skills?: string;
 }

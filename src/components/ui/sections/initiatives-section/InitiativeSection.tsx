@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableOfInitaitives from "../../table-of-initiatives/TableOfInitaitives";
 
 import InitiativeModalDetails from "../../table-of-initiatives/initiative-modal/initiative-modal-details/InitiativeModalDetails";
@@ -14,13 +14,19 @@ import dataFetcher from "../../../../lib/dataFetcher";
 
 import config from "../../../../config";
 import Loading from "../../Loading/Loading";
+import { useCustomSelector } from "../../../../redux/customHooks/useCustomSelector";
+import { setChekout } from "../../../../redux/slice/chekoutSclice";
+import { access } from "fs";
 
 export default function InitiativeSection() {
+  const Check = useCustomSelector((state) => state.chekout);
+  let access: string = "initiative";
+  access = Check.value ? "resume" : "initiative";
   const {
     data: allInitaitives,
     error,
     isLoading,
-  } = useSWR(config.GET_INITATIVES_ROUTE, dataFetcher);
+  } = useSWR(`https://psp.mephi.ru/initiatives/api/${access}/`, dataFetcher);
 
   const [initiativePage, setInitiativePage] = useState(1);
 
@@ -55,6 +61,8 @@ export default function InitiativeSection() {
   };
 
   let initiatives = allInitaitives;
+  let resume = allInitaitives;
+
   let totalPages = 0;
 
   if (initiatives && initiatives.length !== 0) {

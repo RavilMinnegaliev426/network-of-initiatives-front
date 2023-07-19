@@ -2,6 +2,9 @@ import styles from "./table-of-initiatives.module.scss";
 
 import InitiativeCard from "./initiative-card/InitiativeCard";
 import Image from "next/image";
+import { useCustomSelector } from "../../../redux/customHooks/useCustomSelector";
+import ResumeCard from "./initiative-card/ResumeCard";
+import { useEffect, useState } from "react";
 
 interface TableOfInitaitivesProps {
   initiatives: Initiative[];
@@ -22,16 +25,27 @@ export default function TableOfInitaitives({
   totalPages,
   onPropose,
 }: TableOfInitaitivesProps) {
+  const Check = useCustomSelector((state) => state.chekout);
+
   return (
     <>
       <section className={styles.table}>
-        {initiatives.map((initiative) => (
-          <InitiativeCard
-            key={initiative.id}
-            initiative={initiative}
-            onSelect={() => onSelect({ ...initiative })}
-          />
-        ))}
+        {initiatives.map((initiative) =>
+          !Check.value ? (
+            <InitiativeCard
+              key={initiative.id}
+              initiative={initiative}
+              onSelect={() => onSelect({ ...initiative })}
+            />
+          ) : (
+            <ResumeCard
+              key={initiative.id}
+              initiative={initiative}
+              onSelect={() => onSelect({ ...initiative })}
+            />
+          )
+        )}
+
         <button className={styles.propose} onClick={onPropose}>
           Предложить свою инициативу
         </button>

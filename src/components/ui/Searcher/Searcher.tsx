@@ -1,16 +1,22 @@
+import { useCustomSelector } from "../../../redux/customHooks/useCustomSelector";
 import { SvgSelector } from "../../../shared/SvgSelector";
 import { Toggel } from "../toggel/Toggel";
 import s from "./searcher.module.scss";
 type Props = {};
 export const Searcher = (props: Props) => {
+  const Check = useCustomSelector((state) => state.chekout);
   return (
     <div className={s.searcherContainer}>
       <div className={s.searchWrapper}>
-        <SvgSelector id={"lighting"} />
+        {!Check.value ? (
+          <SvgSelector id={"lighting"} />
+        ) : (
+          <SvgSelector id={"people"} />
+        )}
         <div id={"ActiveInit"} className={s.searcherText}>
-          Активные инициативы
+          Активные {!Check.value ? "иницитивы" : "содеятели"}
         </div>
-        {/* <Toggel /> */}
+        <Toggel />
       </div>
       {/* <div className={s.searchEngine}>
         <div className={s.svgWrapper}>

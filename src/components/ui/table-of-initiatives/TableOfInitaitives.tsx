@@ -21,7 +21,7 @@ export default function TableOfInitaitives({
   onSelect,
   onPageBack,
   onPageNext,
-  page,
+  page = 1,
   totalPages,
   onPropose,
 }: TableOfInitaitivesProps) {
@@ -45,10 +45,15 @@ export default function TableOfInitaitives({
             />
           )
         )}
-
-        <button className={styles.propose} onClick={onPropose}>
-          Предложить свою инициативу
-        </button>
+        {!Check.value ? (
+          <button className={styles.propose} onClick={onPropose}>
+            Предложить свою инициативу
+          </button>
+        ) : (
+          <button className={styles.propose} onClick={onPropose}>
+            Предложить анкету
+          </button>
+        )}
         <div className={styles.pageControls}>
           <div className={styles.movesWrapper}>
             <div className={styles.moves1}>
@@ -63,6 +68,7 @@ export default function TableOfInitaitives({
                 />
               </a>
             </div>
+
             <h5
               className={styles.pageCounter}
             >{`${page.toString()} / ${totalPages.toString()}`}</h5>

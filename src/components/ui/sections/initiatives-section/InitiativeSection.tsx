@@ -17,6 +17,9 @@ import Loading from "../../Loading/Loading";
 import { useCustomSelector } from "../../../../redux/customHooks/useCustomSelector";
 import { setChekout } from "../../../../redux/slice/chekoutSclice";
 import { access } from "fs";
+import ResumeModalPropose from "../../table-of-initiatives/initiative-modal/initiative-modal-propose/ResmeModalPropse";
+import ResumeModalDetails from "../../table-of-initiatives/initiative-modal/initiative-modal-details/ResumeModalDetails";
+import ResumeModalForm from "../../table-of-initiatives/initiative-modal/initiative-modal-form/ResumeModalForm";
 
 export default function InitiativeSection() {
   const Check = useCustomSelector((state) => state.chekout);
@@ -29,6 +32,9 @@ export default function InitiativeSection() {
   } = useSWR(`https://psp.mephi.ru/initiatives/api/${access}/`, dataFetcher);
 
   const [initiativePage, setInitiativePage] = useState(1);
+  useEffect(() => {
+    setInitiativePage(1);
+  }, [Check]);
 
   const [proposePage, setProposePage] = useState(0);
 
@@ -91,30 +97,52 @@ export default function InitiativeSection() {
         <div className={styles.overlay}></div>
       )}
       {/* //{" "} */}
-      {proposePage === 1 && (
-        <InitiativeModalPropose
-          onCancel={handleProposeBack}
-          onSubmit={handleProposeNext}
-        />
-      )}
+      {proposePage === 1 &&
+        (!Check.value ? (
+          <InitiativeModalPropose
+            onCancel={handleProposeBack}
+            onSubmit={handleProposeNext}
+          />
+        ) : (
+          <ResumeModalPropose
+            onCancel={handleProposeBack}
+            onSubmit={handleProposeNext}
+          />
+        ))}
       {proposePage === 2 && (
         <InitiativeModalProposeSent onSubmit={() => setProposePage(0)} />
       )}
 
-      {modalPage === 1 && selectedInitiative !== null && (
-        <InitiativeModalDetails
-          initiative={selectedInitiative}
-          onCancel={handleModalBack}
-          onSubmit={handleModalNext}
-        />
-      )}
-      {modalPage === 2 && selectedInitiative !== null && (
-        <InitiativeModalForm
-          initiative={selectedInitiative}
-          onCancel={handleModalBack}
-          onSubmit={handleModalNext}
-        />
-      )}
+      {modalPage === 1 &&
+        selectedInitiative !== null &&
+        (!Check.value ? (
+          <InitiativeModalDetails
+            initiative={selectedInitiative}
+            onCancel={handleModalBack}
+            onSubmit={handleModalNext}
+          />
+        ) : (
+          <ResumeModalDetails
+            initiative={selectedInitiative}
+            onCancel={handleModalBack}
+            onSubmit={handleModalNext}
+          />
+        ))}
+      {modalPage === 2 &&
+        selectedInitiative !== null &&
+        (!Check.value ? (
+          <InitiativeModalForm
+            initiative={selectedInitiative}
+            onCancel={handleModalBack}
+            onSubmit={handleModalNext}
+          />
+        ) : (
+          <ResumeModalForm
+            initiative={selectedInitiative}
+            onCancel={handleModalBack}
+            onSubmit={handleModalNext}
+          />
+        ))}
 
       {modalPage === 3 && selectedInitiative !== null && (
         <InitiativeModalFormSent onSubmit={() => setModalPage(0)} />

@@ -20,6 +20,8 @@ $size-min: 576px;
   padding-top: 30px;
   padding-left: 60px;
   padding-right: 60px;
+  overflow: auto;
+  max-height: 90%;
 }
 
 .s {
@@ -36,7 +38,7 @@ $size-min: 576px;
     position: fixed;
     left: 50%;
     top: 50%;
-    height: 100vh;
+    max-height: 100%;
     overflow-y: auto;
   }
   @media (max-width: 576px) {

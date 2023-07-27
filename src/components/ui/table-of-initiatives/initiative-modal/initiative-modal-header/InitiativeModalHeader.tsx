@@ -1,3 +1,4 @@
+import { useCustomSelector } from "../../../../../redux/customHooks/useCustomSelector";
 import { formatDate, formatDateForSEO } from "../../../../../utils/dateUtils";
 
 import styles from "./initiative-modal-header.module.scss";
@@ -11,6 +12,8 @@ export default function InitiativeModalHeader({
   title,
   date,
 }: InitiativeModalHeaderProps) {
+  const Check = useCustomSelector((state) => state.chekout);
+
   return (
     <>
       <header className={styles.header}>

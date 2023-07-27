@@ -35,7 +35,7 @@ export default function ResumeModalDetails({
 
         <div className={styles.searching}>
           <h4>Какие иницивы ищу</h4>
-          <p style={{ whiteSpace: "pre-line" }}>{initiative.searching}</p>
+          <p style={{ whiteSpace: "pre-line" }}>{initiative.skills}</p>
         </div>
       </InitiativeModal>
     </>

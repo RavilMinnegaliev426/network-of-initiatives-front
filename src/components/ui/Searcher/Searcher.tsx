@@ -18,12 +18,15 @@ export const Searcher = (props: Props) => {
         </div>
         <Toggel />
       </div>
-      {/* <div className={s.searchEngine}>
+      <div className={s.searchEngine}>
         <div className={s.svgWrapper}>
           <SvgSelector id={"searcher"} />
         </div>
-        <input className={s.searcher} placeholder="Поиск инициативы"></input>
-      </div> */}
+        <input
+          className={s.searcher}
+          placeholder="НАХОДИТСЯ В РАЗРАБОТКЕ"
+        ></input>
+      </div>
     </div>
   );
 };

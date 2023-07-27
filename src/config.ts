@@ -7,6 +7,8 @@ const config = {
   GET_RESUME_ROUTE: baseRoute + "resume",
   POST_RESUME_ROUTE: baseRoute + "resume",
   POST_RESUME_APPLICATION_ROUTE: baseRoute + "resume/contact",
+  POST_SEARCHER_INITIATIVE_ROUTE: baseRoute + "search/initiative",
+  POST_SEARCHER_RESUME_ROUTE: baseRoute + "search/resume",
 };
 
 export default config;
